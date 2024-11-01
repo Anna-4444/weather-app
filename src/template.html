@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather-App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6326a1fc23.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <section class="city-selection">
         <!-- <figure><img src="assets/clear-day.svg" alt="clear day"></figure> -->
-        <h1>WEATHER</h1>
+        <h1>Weather</h1>
         <div class="form">
-            <label for="city">Enter A City</label>
-            <input type="text" id="city" name="city">
-            <button class="search">Search</button>
+            <!-- <label for="city">Enter A City</label> -->
+            <input type="text" id="city" name="city" placeholder="Enter A City">
+            <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="unit-conv temp-unit hide">°F</button>
         </div>
-        <button class="unit-conv temp-unit hide">°F</button>
+        
     </section>
     <section class="forecast"></section>
 </body>

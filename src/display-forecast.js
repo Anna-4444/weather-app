@@ -10,19 +10,29 @@ export function displayTodaysForecast(data) {
     //todaysForecast.innerHTML = '';
     todaysForecast.classList.add('todays-forecast');
     todaysForecast.innerHTML = 
-        `<h1>${data.resolvedAddress}</h1>
-        <p><span class="temp">${data.currentConditions.temp}</span><span class="temp-unit">°F</span></p>
+        `<div class="today-top">
+        <h2>${data.resolvedAddress}</h2>
+        <h3><span class="temp">${data.currentConditions.temp}</span><span class="temp-unit">°F</span></h3>
+        <h3>${data.currentConditions.conditions}</h3>
         <figure class="icon-todays-forecast"><img src="${icon}" alt="${data.currentConditions.icon}"></figure> 
-        <p>${data.currentConditions.conditions}</p>
-        <p>H:<span class="temp">${data.days[0].tempmax}</span><span class="temp-unit">°F</span> L:<span class="temp">${data.days[0].tempmin}</span><span class="temp-unit">°F</span></p>
-        <p>Feels Like: <span class="temp">${data.currentConditions.feelslike}</span><span class="temp-unit">°F</span></p>
-        <p>Humidity: currently ${data.currentConditions.humidity}%</p>
-        <p>Wind: currently ${data.currentConditions.windspeed} mph out of the ${direction} with gusts up to ${data.days[0].windgust} mph</p>
-        <p>Forecast: ${data.description}</p>`;
+        </div>
+        <div class="today-mid">
+        <p><span class="bold">H:</span><span class="temp">${data.days[0].tempmax}</span><span class="temp-unit">°F</span> - <span class="bold">L:</span><span class="temp">${data.days[0].tempmin}</span><span class="temp-unit">°F</span></p>
+        <p><span class="bold">Feels Like:</span> <span class="temp">${data.currentConditions.feelslike}</span><span class="temp-unit">°F</span></p>
+        <p><span class="bold">Humidity:</span> ${data.currentConditions.humidity}%</p>
+        <p><span class="bold">Precip:</span> ${data.days[0].precipprob}%</p>
+        </div>
+        <div class="today-end">
+        <p><span class="bold">Wind:</span> ${data.currentConditions.windspeed} mph out of the ${direction} with gusts up to ${data.days[0].windgust} mph</p>
+        <p><span class="bold">Forecast:</span> ${data.description}</p>
+        </div>`;
+        
     forecast.append(todaysForecast);
 };
 
+// export function displayHourForecast(data) {
 
+// }
 
 export function display7DayForecast(data) {
     const forecast = document.querySelector('.forecast');
@@ -36,7 +46,7 @@ export function display7DayForecast(data) {
         const li = document.createElement('li');
         li.classList.add('day');
         const icon = getWeatherIcon(data.days[i].icon);
-        li.innerHTML = `${format(data.days[i].datetime.replace(/-/g, '/'), 'ccc')}  <figure class="icon-week-forecast"><img src="${icon}" alt="${data.days[i].icon}"></figure> <span class="temp">${data.days[i].tempmin}</span><span class="temp-unit">°F</span> - <span class="temp">${data.days[i].tempmax}</span><span class="temp-unit">°F</span>`;
+        li.innerHTML = `${format(data.days[i].datetime.replace(/-/g, '/'), 'ccc')}  <figure class="icon-week-forecast"><img src="${icon}" alt="${data.days[i].icon}" class="icon-week"></figure> <div class="temp-range"><span class="temp">${data.days[i].tempmin}</span><span class="temp-unit">°F</span> - <span class="temp">${data.days[i].tempmax}</span><span class="temp-unit">°F</span></div>`;
         ul.append(li);
         console.log(data.days[i].datetime);
     }

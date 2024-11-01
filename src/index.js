@@ -30,6 +30,7 @@ async function getWeatherData(url) {
 unitConvBtn.addEventListener('click', () => {  
     convertTemp();
     convertTempUnit();
+    //convertDistance();
     //convertDistanceUnit();
 });
 
