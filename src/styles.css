@@ -3,18 +3,19 @@
     box-sizing: border-box;
 }
 
+/* 
 :root.sunnyday {
 
 }
 :root.cloudyday {
- /* any weather in the day that is not sunny */
+ any weather in the day that is not sunny
 }
 :root.clearnight {
 
 }
 :root.cloudynight {
-/* any weather at night that is not clear  */
-}
+any weather at night that is not clear 
+} */
 
 html {
     font-size: 16px;
@@ -62,9 +63,13 @@ h3 {
 .unit-conv {
     padding: 0.5rem 0.5rem;
     border: none;
-    background-color: #6587a4;
     border-radius: 0.5rem;
     box-shadow: 3px 3px 5px darkgray;
+}
+
+.search,
+.unit-conv {
+    background-color: #6587a4;
 }
 
 .todays-forecast {
